@@ -1,7 +1,33 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+fun main() {
+    println("Введите строку символов: ")
+    val inputVal = readln()
+    var result =""
+    var countChar = 1
+    var previousChar = inputVal[0]
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
-}
+    for (i in 1 .. inputVal.length -1){
+        if(previousChar == inputVal[i]){
+            countChar += 1
+            previousChar = inputVal[i]
+        } else {
+            if (countChar>1)
+            {
+                result = result + countChar + previousChar
+            } else {
+                result = result + previousChar
+
+            }
+            countChar = 1
+            previousChar = inputVal[i]
+            }
+        }
+    if (countChar>1)
+    {
+        result= result + countChar + previousChar
+    } else
+    {
+        result = result + previousChar
+
+    }
+    println(result)
+    }
